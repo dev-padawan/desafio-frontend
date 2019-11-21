@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Previsão do Tempo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="container background">
+        <hader class="mainHeader">
+            <div class="container">
+                <h1 class="mainHeading">Previsão do tempo</h1>
+
+                <div id="testeAxios" class="widget">
+                    <h1 id="location"></h1>
+                    <h2 id="temperatura"></h2>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        
+                    </ul>
+                </div>
+
+                <form class="search">
+                    <input placeholder="Insira aqui o nome da cidade" type="text" name="search" class="search" id="search">
+                    <button id="searchSubmit"><i class="fa fa-search"></i></button>
+                </form>
+
+            </div>
+        </hader>
+        <main>
+            <div class="container">
+                <h1 class="headingCapitais">Capitais</h1>
+            </div>
+        </main>
+    </div>
+    
+    <!-- <script src="assets/js/jquery-3.4.1.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="assets/js/weather.js"></script>
+    <script src="assets/js/translate.js"></script>
+</body>
+</html>
