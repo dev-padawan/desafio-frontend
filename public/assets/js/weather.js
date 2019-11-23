@@ -61,7 +61,7 @@ URL = Object.keys(query).map(function(z) {
 
 
 function exibeDados(dados) {
-    var texto = JSON.stringify(dados);
+    // var texto = JSON.stringify(dados);
     var cidade = dados.location.city;
     var regiao = dados.location.region;
     var pais = dados.location.country;
@@ -70,7 +70,6 @@ function exibeDados(dados) {
     var condicaoDoClima = translate(currently);
     var low ;
     var heigh;
-    
     
     document.querySelector('#location').innerHTML = `${cidade}, ${regiao} - ${pais}` ;
     document.querySelector('#temperatura').innerHTML = `${temperatura}°C ${condicaoDoClima}`;
@@ -85,27 +84,36 @@ axios.get(url + '?' + URL, {
     },
     
 }).then(response => {
-    // console.log(response.data);
-    var estado = response.data;
-    console.log(estado);
-    
-    exibeDados(response.data);
+  
+  let meteorologia = response.data;
+  console.log(meteorologia);
+
+  let { current_observation: observacaoAtual, forecasts: previsao, location: localizacao } = meteorologia;
+  let { city: cidade, region: regiao, country: pais } = localizacao;
+  let { wind: condicaoDoVento, atmosphere: atmosfera, condition: condicaoDoClima, pubDate: dataAtual } = observacaoAtual;
+  let { speed: velocidadeDoVento } = condicaoDoVento;
+
+  dataAtual = new Date(dataAtual*1000);
+  dataAtual = dataAtual.toLocaleDateString("pt-BR");
+
+  
+  previsao.forEach(e => {
+
+    let {date: dia} = e;
+    dia = new Date(dia*1000);
+    dia = dia.toLocaleDateString("pt-BR");
+
+    if(dia == dataAtual) {
+      let { low: temperaturaMinima, high: temperaturaMaxima }  = e;
+      
+    }
+  });
+  
+  
+
+  exibeDados(response.data);
      
 })
 .catch((error) => {
 console.log(error.message);
 });
-
-
-// Com jQuery
-// $.ajax({
-//   url: url + '?' + $.param(query),
-//   headers: {
-//     'Authorization': auth_header,
-//     'X-Yahoo-App-Id': app_id 
-//   },
-//   method: 'GET',
-//   success: function(data){
-//     console.log(data);
-//   }
-// });
