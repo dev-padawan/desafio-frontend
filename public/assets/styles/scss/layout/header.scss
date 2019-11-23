@@ -1,0 +1,16 @@
+
+.mainHeader {
+   @extend %full-width-and-height;
+}
+
+.mainHeader .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+}
+
+.mainHeader .mainHeading {
+   @extend %heading;
+}
+

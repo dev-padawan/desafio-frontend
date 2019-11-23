@@ -1,0 +1,26 @@
+
+.mainHeader .container form {
+    margin-top: 5%;
+    width: 30%;
+    text-align: center;
+    position: relative;
+}
+
+.mainHeader .container form input {
+    width: 100%;
+    padding: 2% 0 2% 5%;
+    font-size: 1.5rem;
+}
+
+.mainHeader .container form button {
+  position: absolute;
+  top:0; 
+  right:0;
+  bottom: 0;
+  z-index:10;
+  border:none;
+  background:transparent;
+  outline:none;
+  color: $assistant-color-low;
+  font-size: 1.2rem;
+}
