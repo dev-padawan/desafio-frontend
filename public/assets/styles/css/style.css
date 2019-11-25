@@ -155,7 +155,15 @@ table {
 }
 
 .iarr {
-  color: orange;
+  color: orangered;
+  font-weight: bolder;
+}
+.iarr,
+.sensacaoTermica,
+.vento,
+.humidade,
+.lowAndHigh {
+  font-weight: bolder;
 }
 
 .capitais {

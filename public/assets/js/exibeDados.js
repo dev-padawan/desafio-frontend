@@ -39,9 +39,9 @@ function criaElementos(clima) {
   localizacao.innerHTML     = `${clima.cidade}, ${clima.estado} - ${clima.pais}`;
   temperatura.innerHTML     = `${clima.temperatura}C° ${clima.condicaoClima}`;
   lowAndHigh.innerHTML      = `<i class="iarr darr">&darr;</i>${clima.temperaturaMinima}C° <i class="iarr uarr">&uarr;</i>${clima.temperaturaMaxima}C°`;
-  sensationTermic.innerHTML = `Sensação ${clima.sensacaoTermica}C°`;
-  wildSpeed.innerHTML       = `Vento ${clima.vento}Km/h`;
-  humidity.innerHTML        = `Humidade ${clima.humidade}%`;
+  sensationTermic.innerHTML = `Sensação <i class="sensacaoTermica">${clima.sensacaoTermica}C°</i>`;
+  wildSpeed.innerHTML       = `Vento <i class="vento">${clima.vento}Km/h</i>`;
+  humidity.innerHTML        = `Humidade <i class="humidade">${clima.humidade}%</i>`;
   
   widgetWeather.appendChild(localizacao);
   widgetWeather.appendChild(temperatura);
