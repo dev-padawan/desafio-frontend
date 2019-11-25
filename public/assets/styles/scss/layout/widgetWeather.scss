@@ -2,9 +2,10 @@
     margin-top: 2%;
     background: $white;
     padding: 2% 5%;
-    width: 50%;
+    width: 70%;
     color: $assistant-color-heigh;
     font-weight: 500;
+    font-family: 'Opens Sans', sans-serif;
 }
 .widgetWeather h2 {
     color: $assistant-color-heigh;
@@ -16,4 +17,17 @@
 .widgetWeather h1 {
     color: $assistant-color-heigh;
     font-family: $title-font;
+}
+
+.widgetWeather .moreInfoweather {
+    width: 70%;
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+.widgetWeather .moreInfoweather.moreInfoweather_item {
+    width: 50%;
+    display: inline-block;
+    padding: 2%;
 }

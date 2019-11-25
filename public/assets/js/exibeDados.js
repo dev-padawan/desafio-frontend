@@ -20,6 +20,8 @@ function criaElementos(clima) {
   let terceiro        = document.createElement('ul');
   let quarto          = document.createElement('ul');
   let quinto          = document.createElement('ul');
+  let darr = document.createElement('i');
+  let uarr = document.createElement('i');
   
   localizacao.className     = "location";
   temperatura.className     = "infoWeather";
@@ -33,10 +35,10 @@ function criaElementos(clima) {
   terceiro.className        = "forecastForWeek_item terceiro";
   quarto.className          = "forecastForWeek_item quarto";
   quinto.className          = "forecastForWeek_item quinto";
-
+  
   localizacao.innerHTML     = `${clima.cidade}, ${clima.estado} - ${clima.pais}`;
   temperatura.innerHTML     = `${clima.temperatura}C° ${clima.condicaoClima}`;
-  lowAndHigh.innerHTML      = `${clima.temperaturaMinima}C° ${clima.temperaturaMaxima}C°`;
+  lowAndHigh.innerHTML      = `<i class="iarr darr">&darr;</i>${clima.temperaturaMinima}C° <i class="iarr uarr">&uarr;</i>${clima.temperaturaMaxima}C°`;
   sensationTermic.innerHTML = `Sensação ${clima.sensacaoTermica}C°`;
   wildSpeed.innerHTML       = `Vento ${clima.vento}Km/h`;
   humidity.innerHTML        = `Humidade ${clima.humidade}%`;
