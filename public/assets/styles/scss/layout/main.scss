@@ -1,8 +1,8 @@
-main {
+.capitais {
     display: flex;
     justify-content: center;
 }
-main .container {
+.capitais  {
     width: 35%;
     border-top: 1px solid $white;
     margin-top: 5%;
@@ -12,7 +12,7 @@ main .container {
     padding: 2% 5%;
 }
 
-main .container .headingCapitais {
+.capitais  .headingCapitais {
     align-self: flex-start;
     color: $white;
     font-size: 2.5rem;

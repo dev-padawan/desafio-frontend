@@ -2,8 +2,9 @@
 @import 'helpers/mixins';
 @import 'helpers/placeholders.scss';
 
+@import 'base/reset';
 @import 'layout/general';
 @import 'layout/header';
 @import 'layout/form';
-@import 'layout/widget';
+@import 'layout/widgetWeather';
 @import 'layout/main';

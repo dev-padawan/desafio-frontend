@@ -3,8 +3,8 @@
     height: $full-height;
 }
 
-%heading {
-    color: $white;
-    font-size: 4rem;
+%title-pattern {
+    font-family: $title-font;
+    font-size: $font-size;
     font-weight: 700;
 }

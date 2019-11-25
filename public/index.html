@@ -9,44 +9,46 @@
     <link rel="stylesheet" href="assets/styles/css/style.css">
 </head>
 <body>
+  <div class="mainContainer">
+    <header class="mainHeader">
+      <h1 class="header-title">Previsão do tempo</h1>
 
-    <div class="container background">
+      <div class="widgetWeather"></div>
 
+      <form class="search">
+          <input placeholder="Insira aqui o nome da cidade" type="text" name="search" class="search" id="search">
+          <datalist id="history">
+
+          </datalist>
+
+          <button  id="searchSubmit"><i class="fa fa-search"></i></button>
+      </form>
+
+    </header>
+  </div>
+    
+
+    <!-- <div class="container background">
         <hader class="mainHeader">
             <div class="container">
-                
                 <h1 class="mainHeading">Previsão do tempo</h1>
-
                 <div id="testeAxios" class="widget">
-                    <h1 id="location"></h1>
-                    <h2 id="temperatura"></h2>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        
-                    </ul>
+                    <h2 id="location"></h2>
+                    <h1 id="temperatura"></h1>
                 </div>
-
                 <form class="search">
                     <input placeholder="Insira aqui o nome da cidade" type="text" name="search" class="search" id="search">
                     <button id="searchSubmit"><i class="fa fa-search"></i></button>
                 </form>
-
             </div>
         </hader>
-        <main>
-            <div class="container">
-                <h1 class="headingCapitais">Capitais</h1>
-            </div>
-        </main>
-    </div>
-    
-    <!-- <script src="assets/js/jquery-3.4.1.js"></script> -->
+    </div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="assets/js/weather.js"></script>
+    <script src="assets/js/api-weather.js"></script>
+    <script src="assets/js/obtemDados.js"></script>
+    <script src="assets/js/exibeDados.js"></script>
     <script src="assets/js/translate.js"></script>
+
 </body>
 </html>
