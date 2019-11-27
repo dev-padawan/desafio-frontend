@@ -1,28 +1,31 @@
+var control = false;
 function exibeDados(clima) {
+  
   
   criaElementos(clima);
 };
 
 function criaElementos(clima) {
 
-  let widgetWeather   = document.querySelector('.widgetWeather');
+  let mainHeader            = document.querySelector('.mainHeader');
+  let widgetWeather         = document.createElement('div');
+  let localizacao           = document.createElement('h2');
+  let temperatura           = document.createElement('h1');
+  let moreInfoWeather       = document.createElement('div');
+  let lowAndHigh            = document.createElement('span');
+  let sensationTermic       = document.createElement('span');
+  let wildSpeed             = document.createElement('span');
+  let humidity              = document.createElement('span');
+  let forecastForWeek       = document.createElement('ul');
+  let primeio               = document.createElement('ul');
+  let segundo               = document.createElement('ul');
+  let terceiro              = document.createElement('ul');
+  let quarto                = document.createElement('ul');
+  let quinto                = document.createElement('ul');
+  let darr                  = document.createElement('i');
+  let uarr                  = document.createElement('i');
   
-  let localizacao     = document.createElement('h2');
-  let temperatura     = document.createElement('h1');
-  let moreInfoWeather = document.createElement('div');
-  let lowAndHigh      = document.createElement('span');
-  let sensationTermic = document.createElement('span');
-  let wildSpeed       = document.createElement('span');
-  let humidity        = document.createElement('span');
-  let forecastForWeek = document.createElement('ul');
-  let primeio         = document.createElement('ul');
-  let segundo         = document.createElement('ul');
-  let terceiro        = document.createElement('ul');
-  let quarto          = document.createElement('ul');
-  let quinto          = document.createElement('ul');
-  let darr = document.createElement('i');
-  let uarr = document.createElement('i');
-  
+  widgetWeather.className   = "widgetWeather";
   localizacao.className     = "location";
   temperatura.className     = "infoWeather";
   moreInfoWeather.className = "moreInfoweather";
@@ -43,6 +46,7 @@ function criaElementos(clima) {
   wildSpeed.innerHTML       = `Vento <i class="vento">${clima.vento}Km/h</i>`;
   humidity.innerHTML        = `Humidade <i class="humidade">${clima.humidade}%</i>`;
   
+  mainHeader.insertAdjacentElement('beforebegin', widgetWeather);
   widgetWeather.appendChild(localizacao);
   widgetWeather.appendChild(temperatura);
   widgetWeather.appendChild(moreInfoWeather);
@@ -56,6 +60,21 @@ function criaElementos(clima) {
   forecastForWeek.appendChild(terceiro);
   forecastForWeek.appendChild(quarto);
   forecastForWeek.appendChild(quinto);
+  control = true;
+}
 
-  console.log(widgetWeather);
+
+function verifica() {
+  let mainHeader            = document.querySelector('.mainHeader');
+  let widgetWeather = document.querySelector('.widgetWeather');
+  if(document.querySelector('.widgetWeather')){
+    if(control == true) {
+      console.log("criei o elemento");
+      
+      // mainHeader.parentNode.removeChild(widgetWeather);
+    }
+    
+  }else {
+    console.log("não achei");
+  }
 }
