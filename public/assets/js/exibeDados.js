@@ -1,9 +1,27 @@
 var control = false;
 function exibeDados(clima) {
+ 
   
+  var mainHeader            = document.querySelector('.mainHeader');
+  var elementoClima = document.querySelector('.widgetWeather');
   
-  criaElementos(clima);
+  if(elementoClima !== null) {
+    console.log("existe");
+    removeElement(mainHeader);
+    criaElementos(clima);
+    return true;
+    
+  }else {
+    console.log("não existe");
+    criaElementos(clima);
+    return false;
+  }
+  // verifica(clima);
 };
+
+function verifica(clima) {
+
+}
 
 function criaElementos(clima) {
 
@@ -64,17 +82,3 @@ function criaElementos(clima) {
 }
 
 
-function verifica() {
-  let mainHeader            = document.querySelector('.mainHeader');
-  let widgetWeather = document.querySelector('.widgetWeather');
-  if(document.querySelector('.widgetWeather')){
-    if(control == true) {
-      console.log("criei o elemento");
-      
-      // mainHeader.parentNode.removeChild(widgetWeather);
-    }
-    
-  }else {
-    console.log("não achei");
-  }
-}

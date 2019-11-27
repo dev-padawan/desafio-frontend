@@ -6,10 +6,12 @@ var consumer_secret = '01c1c4276ede8302cfd68049e6a489e30d416342'; // Consumer se
 var concat = '&';
 var search = document.getElementById('search');
 var button = document.getElementById('searchSubmit');
+var elementoClima = document.querySelector('.widgetWeather');
+// console.log(elementoClima);
 
 button.onclick = function(e) {
-
   e.preventDefault();
+  
   var query = {
     'location': search.value,
     // 'location': 'rio de janeiro, RJ',
@@ -74,10 +76,9 @@ button.onclick = function(e) {
     },
     
   }).then(response => {
-    
+    verifica();
     obtemDados(response.data);
     
-    verifica();
   })
   .catch((error) => {
     console.log(error.message);
