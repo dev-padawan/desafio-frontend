@@ -1,7 +1,4 @@
-
-
 function obtemDados(dados) {
-  // console.log(dados);
   const { 
     current_observation: climaAtual,
     forecasts: previsao,
@@ -43,19 +40,6 @@ function obtemDados(dados) {
   });
   
   exibeDados(clima); 
-  // console.log(`
-  // ${clima.cidade}, ${clima.estado} - ${clima.pais}
-  // Vento: ${clima.vento}Km
-  // Condicao: ${clima.condicaoClima}
-  // Temp: ${clima.temperatura}C°
-  // Temperatura mínima: ${temperaturaMinima}
-  // Temperatura máxima: ${temperaturaMaxima}
-  // Sensação Térmica: ${clima.sensacaoTermica}Cº
-  // Data: ${clima.diaAtual}
-  // Humidade: ${clima.humidade}%
   
-  // `);
-  
-  // document.querySelector('.location').innerHTML = `${city}, ${region} - ${country}` ;
- return clima;
+  return clima;
 }

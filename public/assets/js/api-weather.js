@@ -4,10 +4,10 @@ var app_id = 'MmIZQP7c'; // App ID
 var consumer_key = 'dj0yJmk9TTVqU0dzZTdVblozJmQ9WVdrOVRXMUpXbEZRTjJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTA3'; // Consumer key - Client ID
 var consumer_secret = '01c1c4276ede8302cfd68049e6a489e30d416342'; // Consumer secret - Client secret
 var concat = '&';
+
 var search = document.getElementById('search');
 var button = document.getElementById('searchSubmit');
 var elementoClima = document.querySelector('.widgetWeather');
-// console.log(elementoClima);
 
 button.onclick = function(e) {
   e.preventDefault();
@@ -76,7 +76,7 @@ button.onclick = function(e) {
     },
     
   }).then(response => {
-    verifica();
+
     obtemDados(response.data);
     
   })

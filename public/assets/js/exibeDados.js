@@ -1,31 +1,24 @@
-var control = false;
 function exibeDados(clima) {
- 
   
-  var mainHeader            = document.querySelector('.mainHeader');
+  var headerTitle   = document.querySelector('.header-title');
   var elementoClima = document.querySelector('.widgetWeather');
   
   if(elementoClima !== null) {
-    console.log("existe");
-    removeElement(mainHeader);
-    criaElementos(clima);
-    return true;
+
+    removeElement(headerTitle);
     
-  }else {
-    console.log("não existe");
     criaElementos(clima);
-    return false;
+
+  } else {
+
+    criaElementos(clima);
+
   }
-  // verifica(clima);
 };
-
-function verifica(clima) {
-
-}
 
 function criaElementos(clima) {
 
-  let mainHeader            = document.querySelector('.mainHeader');
+  let headerTitle            = document.querySelector('.header-title');
   let widgetWeather         = document.createElement('div');
   let localizacao           = document.createElement('h2');
   let temperatura           = document.createElement('h1');
@@ -64,7 +57,7 @@ function criaElementos(clima) {
   wildSpeed.innerHTML       = `Vento <i class="vento">${clima.vento}Km/h</i>`;
   humidity.innerHTML        = `Humidade <i class="humidade">${clima.humidade}%</i>`;
   
-  mainHeader.insertAdjacentElement('beforebegin', widgetWeather);
+  headerTitle.insertAdjacentElement('beforebegin', widgetWeather);
   widgetWeather.appendChild(localizacao);
   widgetWeather.appendChild(temperatura);
   widgetWeather.appendChild(moreInfoWeather);
@@ -78,7 +71,6 @@ function criaElementos(clima) {
   forecastForWeek.appendChild(terceiro);
   forecastForWeek.appendChild(quarto);
   forecastForWeek.appendChild(quinto);
-  control = true;
 }
 
 

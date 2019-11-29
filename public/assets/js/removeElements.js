@@ -1,5 +1,6 @@
-function removeElement(mainHeader) {
+function removeElement(headerTitle) {
+
   // Removes an element from the document
-  var element = document.querySelector('.mainHeader');
+  var element = document.querySelector('.widgetWeather');
   element.parentNode.removeChild(element);
 }
