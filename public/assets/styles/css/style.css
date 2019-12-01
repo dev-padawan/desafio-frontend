@@ -70,11 +70,16 @@ table {
 .mainContainer {
   background-image: linear-gradient(to bottom, #FF7F00, #FFBA00);
   background-repeat: no-repeat;
-  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: 0; */
 }
 
 .mainHeader {
@@ -118,8 +123,7 @@ table {
   margin-top: 2%;
   background: #fff;
   padding: 2% 5%;
-  width: 70%;
-  height: 40%;
+  width: 50%;
   color: #444;
   font-weight: 500;
   font-family: "Opens Sans", sans-serif;
@@ -137,33 +141,38 @@ table {
   font-family: "Open Sans", sans-serif;
 }
 
-.widgetWeather .moreInfoweather {
-  width: 60%;
-  height: 20%;
+.moreInfoweather {
+  margin-top: 5%;
   display: flex;
-  flex-grow: 1;
-  flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 2%;
-}
-
-.widgetWeather .moreInfoweather.moreInfoweather_item {
   width: 50%;
-  margin-bottom: 1rem;
-
-  display: inline-block;
+  position: relative;
+  margin-bottom: 5%;
 }
 
-.iarr {
-  color: orangered;
-  font-weight: bolder;
+.iarrow {
+  color: orange;
 }
-.iarr,
-.sensacaoTermica,
-.vento,
-.humidade,
-.lowAndHigh {
-  font-weight: bolder;
+
+.forecastDay_minMax {
+  display: block;
+  color: orange;
+  /* font-weight: 700; */
+}
+
+.forecastForWeek {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 5%;
+  line-height: 1.5;
+}
+
+.forecastForWeek {
+  border-top: 2px solid orange;
+}
+
+.forecastForWeek li {
+  font-weight: 700;
 }
 
 .capitais {

@@ -1,33 +1,52 @@
+
 .widgetWeather {
     margin-top: 2%;
-    background: $white;
+    background: #fff;
     padding: 2% 5%;
-    width: 70%;
-    color: $assistant-color-heigh;
+    width: 50%;
+    color: #444;
     font-weight: 500;
-    font-family: 'Opens Sans', sans-serif;
-}
-.widgetWeather h2 {
-    color: $assistant-color-heigh;
+    font-family: "Opens Sans", sans-serif;
+  }
+  
+  .widgetWeather h2 {
+    color: #444;
     font-size: 1.5rem;
     font-weight: bolder;
     margin-top: 2%;
-           
-}
-.widgetWeather h1 {
-    color: $assistant-color-heigh;
-    font-family: $title-font;
-}
-
-.widgetWeather .moreInfoweather {
-    width: 70%;
+  }
+  
+  .widgetWeather h1 {
+    color: #444;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  .moreInfoweather {
+    margin-top: 5%;
     display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-}
-
-.widgetWeather .moreInfoweather.moreInfoweather_item {
+    justify-content: space-between;
     width: 50%;
-    display: inline-block;
-    padding: 2%;
-}
+    position: relative;
+    margin-bottom: 2%;
+  }
+
+  .iarrow {
+    color: orange;
+  }
+  .forecastDay_minMax {
+    display: block;
+    color: orange;
+    /* font-weight: 700; */
+  }
+  .forecastForWeek {
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 5%;
+    line-height: 1.5;
+  }
+  .forecastForWeek {
+    border-top: 2px solid orange;
+  }
+  .forecastForWeek li {
+   font-weight: 700; 
+  }

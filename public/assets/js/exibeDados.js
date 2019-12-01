@@ -23,54 +23,75 @@ function criaElementos(clima) {
   let localizacao           = document.createElement('h2');
   let temperatura           = document.createElement('h1');
   let moreInfoWeather       = document.createElement('div');
-  let lowAndHigh            = document.createElement('span');
-  let sensationTermic       = document.createElement('span');
-  let wildSpeed             = document.createElement('span');
-  let humidity              = document.createElement('span');
+  let moreInfoWeather_minMaxVento = document.createElement('ul');
+  let moreInfoWeather_sensacaoHumidade = document.createElement('ul');
+  let lowAndHigh            = document.createElement('li');
+  let wildSpeed             = document.createElement('li');
+  let sensationTermic       = document.createElement('li');
+  let humidity              = document.createElement('li');
   let forecastForWeek       = document.createElement('ul');
-  let primeio               = document.createElement('ul');
-  let segundo               = document.createElement('ul');
-  let terceiro              = document.createElement('ul');
-  let quarto                = document.createElement('ul');
-  let quinto                = document.createElement('ul');
-  let darr                  = document.createElement('i');
-  let uarr                  = document.createElement('i');
+  // let primeio               = document.createElement('ul');
+  // let segundo               = document.createElement('ul');
+  // let terceiro              = document.createElement('ul');
+  // let quarto                = document.createElement('ul');
+  // let quinto                = document.createElement('ul');
+  // let darr                  = document.createElement('i');
+  // let uarr                  = document.createElement('i');
   
   widgetWeather.className   = "widgetWeather";
   localizacao.className     = "location";
   temperatura.className     = "infoWeather";
   moreInfoWeather.className = "moreInfoweather";
-  lowAndHigh.className      = "moreInfoWeather_item lowAndHigh";
-  sensationTermic.className = "moreInfoWeather_item sensationTermic";
-  wildSpeed.className       = "moreInfoWeather_item wildSpeed";
-  humidity.className        = "moreInfoWeather_item humidity";
-  primeio.className         = "forecastForWeek_item primeiro";
-  segundo.className         = "forecastForWeek_item segundo";
-  terceiro.className        = "forecastForWeek_item terceiro";
-  quarto.className          = "forecastForWeek_item quarto";
-  quinto.className          = "forecastForWeek_item quinto";
+  moreInfoWeather_minMaxVento.className = "moreInfoWeather_item minMaxVento";
+  moreInfoWeather_sensacaoHumidade.className = "moreInfoWeather_item sensacaoHumidade"
+  lowAndHigh.className      = "lowAndHigh";
+  wildSpeed.className       = "wildSpeed";
+  sensationTermic.className = "sensationTermic";
+  humidity.className        = "humidity";
+  forecastForWeek.className = "forecastForWeek";
   
   localizacao.innerHTML     = `${clima.cidade}, ${clima.estado} - ${clima.pais}`;
   temperatura.innerHTML     = `${clima.temperatura}C° ${clima.condicaoClima}`;
-  lowAndHigh.innerHTML      = `<i class="iarr darr">&darr;</i>${clima.temperaturaMinima}C° <i class="iarr uarr">&uarr;</i>${clima.temperaturaMaxima}C°`;
-  sensationTermic.innerHTML = `Sensação <i class="sensacaoTermica">${clima.sensacaoTermica}C°</i>`;
+  lowAndHigh.innerHTML      = `<i class="iarrow fas fa-arrow-down"></i>${clima.temperaturaMinima}C° <i class="iarrow fas fa-arrow-up"></i>${clima.temperaturaMaxima}C°`;
   wildSpeed.innerHTML       = `Vento <i class="vento">${clima.vento}Km/h</i>`;
+  sensationTermic.innerHTML = `Sensação <i class="sensacaoTermica">${clima.sensacaoTermica}C°</i>`;
   humidity.innerHTML        = `Humidade <i class="humidade">${clima.humidade}%</i>`;
   
-  headerTitle.insertAdjacentElement('beforebegin', widgetWeather);
+  headerTitle.insertAdjacentElement('afterend', widgetWeather);
   widgetWeather.appendChild(localizacao);
   widgetWeather.appendChild(temperatura);
   widgetWeather.appendChild(moreInfoWeather);
   widgetWeather.appendChild(forecastForWeek);
-  moreInfoWeather.appendChild(lowAndHigh);
-  moreInfoWeather.appendChild(sensationTermic);
-  moreInfoWeather.appendChild(wildSpeed);
-  moreInfoWeather.appendChild(humidity);
-  forecastForWeek.appendChild(primeio);
-  forecastForWeek.appendChild(segundo);
-  forecastForWeek.appendChild(terceiro);
-  forecastForWeek.appendChild(quarto);
-  forecastForWeek.appendChild(quinto);
+  moreInfoWeather.appendChild(moreInfoWeather_minMaxVento);
+  moreInfoWeather.appendChild(moreInfoWeather_sensacaoHumidade);
+  moreInfoWeather_minMaxVento.appendChild(lowAndHigh);
+  moreInfoWeather_minMaxVento.appendChild(wildSpeed);
+  moreInfoWeather_sensacaoHumidade.appendChild(sensationTermic);
+  moreInfoWeather_sensacaoHumidade.appendChild(humidity);
+
+
+  var posicao = clima.indice;
+  var previsao = clima.previsao;
+  previsao.splice(posicao, 1); 
+  
+  previsao.forEach((e, i) =>{
+    var li = document.createElement('li');
+    var span = document.createElement('span');
+
+    li.className = "forecastDay";
+    span.className = "forecastDay_minMax";
+    
+    span.innerHTML = `${e.low}° ${e.high}º`;
+    li.innerHTML = `${translateDay(e.day)}`;
+    forecastForWeek.appendChild(li);
+    li.appendChild(span);
+
+    
+  })
+  
+
+
+  
 }
 
 

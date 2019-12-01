@@ -1,4 +1,5 @@
 var url = 'https://weather-ydn-yql.media.yahoo.com/forecastrss';
+// var url - 'http://www.yahooapis.com/v1/base.rng';
 var method = 'GET';
 var app_id = 'MmIZQP7c'; // App ID
 var consumer_key = 'dj0yJmk9TTVqU0dzZTdVblozJmQ9WVdrOVRXMUpXbEZRTjJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTA3'; // Consumer key - Client ID
@@ -8,16 +9,15 @@ var concat = '&';
 var search = document.getElementById('search');
 var button = document.getElementById('searchSubmit');
 var elementoClima = document.querySelector('.widgetWeather');
-
 button.onclick = function(e) {
   e.preventDefault();
+      var query = {
+        'location': search.value,
+        // 'location': 'rio de janeiro, RJ',
+        'format': 'json',
+        'u': 'uc'
+      };
   
-  var query = {
-    'location': search.value,
-    // 'location': 'rio de janeiro, RJ',
-    'format': 'json',
-    'u': 'uc'
-  };
   
   var oauth = {
     'oauth_consumer_key': consumer_key,
