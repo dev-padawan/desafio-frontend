@@ -5,18 +5,19 @@ var app_id = 'MmIZQP7c'; // App ID
 var consumer_key = 'dj0yJmk9TTVqU0dzZTdVblozJmQ9WVdrOVRXMUpXbEZRTjJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTA3'; // Consumer key - Client ID
 var consumer_secret = '01c1c4276ede8302cfd68049e6a489e30d416342'; // Consumer secret - Client secret
 var concat = '&';
-
 var search = document.getElementById('search');
 var button = document.getElementById('searchSubmit');
 var elementoClima = document.querySelector('.widgetWeather');
-button.onclick = function(e) {
-  e.preventDefault();
-      var query = {
-        'location': search.value,
-        // 'location': 'rio de janeiro, RJ',
-        'format': 'json',
-        'u': 'uc'
-      };
+
+function requisicaoApi(local) {
+  
+  var query = {
+    'location': local,
+    // 'location': search.value,
+    // 'location': 'rio de janeiro, RJ',
+    'format': 'json',
+    'u': 'uc'
+  };
   
   
   var oauth = {
@@ -76,12 +77,19 @@ button.onclick = function(e) {
     },
     
   }).then(response => {
-
-    obtemDados(response.data);
-    
+    var dados = response.data;
+    obtemDados(dados);
+    // capitais(dados)
   })
   .catch((error) => {
     console.log(error.message);
   });
   
+}
+
+
+button.onclick = function(e) {
+  e.preventDefault();
+  local = search.value;
+  requisicaoApi(local);
 }

@@ -147,7 +147,8 @@ table {
   justify-content: space-between;
   width: 50%;
   position: relative;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+  line-height: 1.5;
 }
 
 .iarrow {

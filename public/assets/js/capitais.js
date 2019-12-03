@@ -1,15 +1,3 @@
-function capitais(teste) {
- 
-  console.log(teste.location.region);
-
-var testeCapitais = document.querySelector('.capitais');
- 
-setInterval(function consultaCapitais(consulta) {
-  
-}, 3000)
-  
-}
-
 const todasCapitais = [
    "Rio Branco",
    "Maceió",
@@ -38,5 +26,15 @@ const todasCapitais = [
    "São Paulo",
    "Aracaju",
    "Palmas"
-]
+];
+function capitais(todasCapitais) {
 
+  todasCapitais.forEach(element => {
+    console.log(element);
+    var local = element;
+
+    
+    return requisicaoApi(local);
+  });
+}
+// capitais(todasCapitais);
