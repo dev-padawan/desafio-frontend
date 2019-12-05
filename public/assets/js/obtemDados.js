@@ -1,4 +1,7 @@
-function obtemDados(dados) {
+import exibeDados from './exibeDados.js';
+import translate from './translate.js';
+
+export default function obtemDados(dados) {
   const { 
     current_observation: climaAtual,
     forecasts: previsao,
@@ -30,7 +33,7 @@ function obtemDados(dados) {
     previsao: []
   }
   
-  novaprevisao = previsao.splice(0, 6);
+  var novaprevisao = previsao.splice(0, 6);
   // console.log(novaprevisao);
   novaprevisao.forEach((element, index)=> {
     clima.previsao.push(element)

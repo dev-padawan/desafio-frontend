@@ -1,15 +1,12 @@
-var url = 'https://weather-ydn-yql.media.yahoo.com/forecastrss';
-// var url - 'http://www.yahooapis.com/v1/base.rng';
+import obtemDados from './obtemDados.js';
+var url = 'https://weather-ydn-yql.media.yahoo.com/forecastrss'; // var url - 'http://www.yahooapis.com/v1/base.rng';
 var method = 'GET';
 var app_id = 'MmIZQP7c'; // App ID
 var consumer_key = 'dj0yJmk9TTVqU0dzZTdVblozJmQ9WVdrOVRXMUpXbEZRTjJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTA3'; // Consumer key - Client ID
 var consumer_secret = '01c1c4276ede8302cfd68049e6a489e30d416342'; // Consumer secret - Client secret
 var concat = '&';
-var search = document.getElementById('search');
-var button = document.getElementById('searchSubmit');
-var elementoClima = document.querySelector('.widgetWeather');
 
-function requisicaoApi(local) {
+export default function requisicaoApi(local) {
   
   var query = {
     'location': local,
@@ -85,11 +82,4 @@ function requisicaoApi(local) {
     console.log(error.message);
   });
   
-}
-
-
-button.onclick = function(e) {
-  e.preventDefault();
-  local = search.value;
-  requisicaoApi(local);
 }
