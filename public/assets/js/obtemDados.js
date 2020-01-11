@@ -1,7 +1,8 @@
-import exibeDados from './exibeDados.js';
+import trataDados from '../js/app.js';
 import translate from './translate.js';
 
 export default function obtemDados(dados) {
+
   const { 
     current_observation: climaAtual,
     forecasts: previsao,
@@ -33,25 +34,24 @@ export default function obtemDados(dados) {
     previsao: []
   }
   
-  var novaprevisao = previsao.splice(0, 6);
+  let novaprevisao = previsao.splice(0, 6);
   // console.log(novaprevisao);
   novaprevisao.forEach((element, index)=> {
     clima.previsao.push(element)
 
     clima.diaDaSemana.push(element.day);
     
-    var dia = new Date(element.date * 1000);
+    let dia = new Date(element.date * 1000);
     dia = dia.toLocaleDateString('pt-BR');
     
     if( dia === today) {
-      var {  low, high } = element;
+      let {  low, high } = element;
       clima.temperaturaMinima = low;
       clima.temperaturaMaxima = high;
       
     }
   });
-  
-  exibeDados(clima); 
-  
+  trataDados(clima);
+
   return clima;
 }

@@ -1,14 +1,14 @@
 import obtemDados from './obtemDados.js';
-var url = 'https://weather-ydn-yql.media.yahoo.com/forecastrss'; // var url - 'http://www.yahooapis.com/v1/base.rng';
-var method = 'GET';
-var app_id = 'MmIZQP7c'; // App ID
-var consumer_key = 'dj0yJmk9TTVqU0dzZTdVblozJmQ9WVdrOVRXMUpXbEZRTjJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTA3'; // Consumer key - Client ID
-var consumer_secret = '01c1c4276ede8302cfd68049e6a489e30d416342'; // Consumer secret - Client secret
-var concat = '&';
+let url = 'https://weather-ydn-yql.media.yahoo.com/forecastrss'; // let url - 'http://www.yahooapis.com/v1/base.rng';
+let method = 'GET';
+let app_id = 'MmIZQP7c'; // App ID
+let consumer_key = 'dj0yJmk9TTVqU0dzZTdVblozJmQ9WVdrOVRXMUpXbEZRTjJNbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTA3'; // Consumer key - Client ID
+let consumer_secret = '01c1c4276ede8302cfd68049e6a489e30d416342'; // Consumer secret - Client secret
+let concat = '&';
 
 export default function requisicaoApi(local) {
   
-  var query = {
+  let query = {
     'location': local,
     // 'location': search.value,
     // 'location': 'rio de janeiro, RJ',
@@ -17,7 +17,7 @@ export default function requisicaoApi(local) {
   };
   
   
-  var oauth = {
+  let oauth = {
     'oauth_consumer_key': consumer_key,
     'oauth_nonce': Math.random().toString(36).substring(2),
     'oauth_signature_method': 'HMAC-SHA1',
@@ -25,15 +25,15 @@ export default function requisicaoApi(local) {
     'oauth_version': '1.0'
   };
   
-  var merged = {}; 
-  var extend = function(out) {
+  let merged = {}; 
+  let extend = function(out) {
     out = out || {};
     
-    for (var i = 1; i < arguments.length; i++) {
+    for (let i = 1; i < arguments.length; i++) {
       if (!arguments[i])
       continue;
       
-      for (var key in arguments[i]) {
+      for (let key in arguments[i]) {
         if (arguments[i].hasOwnProperty(key))
         out[key] = arguments[i][key];
       }
@@ -44,19 +44,19 @@ export default function requisicaoApi(local) {
   
   extend(merged, query, oauth);
   // Note the sorting here is required
-  var merged_arr = Object.keys(merged).sort().map(function(k) {
+  let merged_arr = Object.keys(merged).sort().map(function(k) {
     return [k + '=' + encodeURIComponent(merged[k])];
   });
-  var signature_base_str = method
+  let signature_base_str = method
   + concat + encodeURIComponent(url)
   + concat + encodeURIComponent(merged_arr.join(concat));
   
-  var composite_key = encodeURIComponent(consumer_secret) + concat;
-  var hash = CryptoJS.HmacSHA1(signature_base_str, composite_key);
-  var signature = hash.toString(CryptoJS.enc.Base64);
+  let composite_key = encodeURIComponent(consumer_secret) + concat;
+  let hash = CryptoJS.HmacSHA1(signature_base_str, composite_key);
+  let signature = hash.toString(CryptoJS.enc.Base64);
   
   oauth['oauth_signature'] = signature;
-  var auth_header = 'OAuth ' + Object.keys(oauth).map(function(k) {
+  let auth_header = 'OAuth ' + Object.keys(oauth).map(function(k) {
     return [k + '="' + oauth[k] + '"'];
   }).join(',');
   
@@ -74,9 +74,9 @@ export default function requisicaoApi(local) {
     },
     
   }).then(response => {
-    var dados = response.data;
+    let dados = response.data;
     obtemDados(dados);
-    // capitais(dados)
+    
   })
   .catch((error) => {
     console.log(error.message);
